@@ -9,4 +9,4 @@ const conn = mariadb.createConnection({
     connectionLimit: 5
 });
 
-module.exports.conn = conn;
+module.exports.conn = conn
