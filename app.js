@@ -19,7 +19,4 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter);
 
-const mariadb = require('./server/mariadb');
-mariadb.connect();
-
 module.exports = app;

@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const maria = require('../server/mariadb'); //maria.js 경로 입력
-
+//db연결
+const db = require('../server/mariadb').conn;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,9 +10,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/select', function(req, res, next) { // /select 부분 추가
-  maria.query('select * from exam', function(err, rows, fields) {
+  db.query('select code,sido from sido_code;', function(err, rows, fields) {
     if(!err){
-      console.log("succ");
+      console.log("===========================");
+      for (i = 0, len = rows.length; i < len; i++) {
+        console.log(`${rows[i].code} ${rows[i].sido}`);
+      }
+      console.log("===========================")
       res.send(rows);
     }
     else {
