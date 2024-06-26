@@ -4,7 +4,7 @@ use node_js;
 
 CREATE TABLE `store_info` (
 	`id`	int(4)	NOT NULL AUTO_INCREMENT,
-	`name`	varchar(10)	NULL,
+	`name`	varchar(20)	NULL,
 	`code`	int(4)	NOT NULL,
 	primary key (id)
 );
@@ -90,3 +90,7 @@ insert into sales VALUES (17,"2024-06-22",170000);
 SELECT s.id,s.name,c.sido from store_info s INNER JOIN sido_code c ON(s.code=c.code) WHERE c.code=1;
 
 SELECT c.sido,sum(d.sale) as sales from (SELECT * from sales WHERE month(date)=6) d INNER JOIN store_info s ON(d.id=s.id) INNER JOIN sido_code c ON(s.code=c.code) WHERE c.code = 1 GROUP BY c.code;
+
+SELECT s.id,s.name,s.code,d.date,d.sale from store_info s INNER JOIN (SELECT * from sales WHERE month(date)=6) d on(s.id=d.id) WHERE s.id = 1 ORDER BY d.date DESC; 
+
+INSERT INTO store_info VALUES(1,1,1);
