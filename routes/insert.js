@@ -9,11 +9,11 @@ router.post('/store', function(req, res) {
   let code = req.body.code;
   insertRepository.store(name,code).then((result) => {
     res.send(JSON.stringify({
-      bool : 1
+      code : 201
     }));
   }).catch((err) => {
     res.send(JSON.stringify({
-      bool : 0
+      code : 400
     }));
   })
 });
@@ -25,11 +25,11 @@ router.post('/store/sales', function(req, res) {
   let sale = req.body.sale;
   insertRepository.store_sales(id,date,sale).then((result) => {
     res.send(JSON.stringify({
-      bool : 1
+      code : 201
     }));
   }).catch((err) => {
     res.send(JSON.stringify({
-      bool : 0
+      code : 400
     }));
   })
 });

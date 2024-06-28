@@ -94,3 +94,5 @@ SELECT c.sido,sum(d.sale) as sales from (SELECT * from sales WHERE month(date)=6
 SELECT s.id,s.name,s.code,d.date,d.sale from store_info s INNER JOIN (SELECT * from sales WHERE month(date)=6) d on(s.id=d.id) WHERE s.id = 1 ORDER BY d.date DESC; 
 
 INSERT INTO store_info VALUES(1,1,1);
+
+UPDATE store_info set name = ?, code = ? WHERE id = ?;
