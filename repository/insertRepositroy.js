@@ -16,7 +16,7 @@ exports.store = function(name,code) {
 }
 
 //가게 매출 입력
-exports.store_sales = function(id,date,sale) {
+exports.sales = function(id,date,sale) {
     return new Promise(function(resolve,reject) {
         db.query('INSERT INTO sales VALUES(?,?,?)',[id,date,sale],function(err,result) {
             if(!err) {

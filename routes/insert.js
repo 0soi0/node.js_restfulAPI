@@ -19,11 +19,11 @@ router.post('/store', function(req, res) {
 });
 
 //가게 매출정보 기입
-router.post('/store/sales', function(req, res) {
+router.post('/sales', function(req, res) {
   let id = req.body.id;
   let date = req.body.date;
   let sale = req.body.sale;
-  insertRepository.store_sales(id,date,sale).then((result) => {
+  insertRepository.sales(id,date,sale).then((result) => {
     res.send(JSON.stringify({
       code : 201
     }));
